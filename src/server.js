@@ -12,12 +12,17 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-app.get('/data', (req, res) => {
+const log = (req, res, next) => {
+  console.log('logging')
+  next()
+}
+
+app.get('/data', [log, log], (req, res) => {
   res.send({ message: 'hello' })
 })
 
 app.post('/data', (req, res) => {
-  res.send(req.body)
+  res.send({ ok: true })
 })
 
 export const start = () => {
