@@ -21,6 +21,10 @@ app.get('/data', [log, log], (req, res) => {
   res.send({ message: 'hello' })
 })
 
+app.put('/data', (req, res) => {})
+
+app.delete('/data', (req, res) => {})
+
 app.post('/data', (req, res) => {
   res.send({ ok: true })
 })
